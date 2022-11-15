@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-
+/*
 module "bucket" {
   source = "app.terraform.io/omkar-tfcloud-org01/cloud-gcs/google"
   version = "1.0.0"
@@ -37,4 +37,21 @@ module "bucket" {
     role   = "roles/storage.objectViewer"
     member = "user:omkar.o.sonawane@henkel.com"
   }]
+}
+*/
+
+module "gcs_buckets" {
+  source  = "app.terraform.io/omkar-tfcloud-org01/cloud-gcs/google"
+  version = "1.0.0"
+  project_id  = var.project_id
+  names = ["first", "second"]
+  prefix = "my-unique-prefix"
+  set_admin_roles = true
+  admins = ["user:omkar.o.sonawane@henkel.com"]
+  versioning = {
+    first = true
+  }
+  bucket_admins = {
+    second = "user:olaf.ngo@henkel.com"
+  }
 }
