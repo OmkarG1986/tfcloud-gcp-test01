@@ -14,8 +14,10 @@
  * limitations under the License.
  */
 
+
 module "bucket" {
-  source = "../modules/gcs_bucket"
+  source = "app.terraform.io/omkar-tfcloud-org01/cloud-gcs/google"
+  version = "1.0.0"
 
   name       = "${var.project_id}-bucket"
   project_id = var.project_id
