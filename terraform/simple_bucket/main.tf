@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+locals {
+ terraform_service_account = "hmcp-f-tst-wifom-sa-proj@hmcp-tst-wifom-de-prj-xzo.iam.gserviceaccount.com"
+}
+
 module "bucket" {
   source  = "app.terraform.io/omkar-tfcloud-org01/cloud-gcs/google"
   version = "1.0.1"
